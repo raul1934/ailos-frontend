@@ -1,0 +1,24 @@
+<div class="input__container" [ngClass]="{'error':(control?.invalid && (control?.dirty || control?.touched)) }">
+    <label>{{label}}</label>
+    <input type="text" [(ngModel)]="value" (blur)="onBlur()" [mask]="mask" [placeholder]="placeholder" [dropSpecialCharacters]="dropSpecialCharacters" />
+
+    <div *ngIf="control?.invalid && (control?.dirty || control?.touched)" class="input__container__error" >
+
+    <div *ngIf="control!.errors!['required'] ? true : false">
+        O {{label}} é obrigatório.
+    </div>
+    <div *ngIf="control!.errors!['invalid'] ? true : false">
+       O {{label}} é inválido.
+    </div>
+    <div *ngIf="control!.errors!['minlength']? true : false">
+        {{label}} precisa ter no mínimo {{control!.errors!['minlength'].requiredLength}} caracteres.
+    </div>
+    <div *ngIf="control!.errors!['maxlength']? true : false">
+        {{label}} precisa ter no maxímo {{control!.errors!['maxlength'].requiredLength}} caracteres.
+    </div>
+    
+    <!-- Aqui se necessário pode-se adicionar mais validadores, no futuro pode-se inserir a opção de mensagens customizadas -->
+
+    </div>
+</div>
+

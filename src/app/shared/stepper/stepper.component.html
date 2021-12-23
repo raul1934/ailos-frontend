@@ -1,0 +1,14 @@
+
+<section class="stepper">
+    <ol class="stepper__header">
+      <li *ngFor="let step of steps; let i = index;" class="stepper__header__item" [ngClass]="{'stepper__header__item--active': selectedIndex === i, 'stepper__header__item--completed': i < selectedIndex }">
+            <span></span>
+             <h3>{{step.label}}</h3>
+        </li>
+    </ol>
+    <div class="stepper__content">
+        <ng-content></ng-content>
+        <ng-container [ngTemplateOutlet]="selected!.content">
+        </ng-container>
+    </div>
+</section>

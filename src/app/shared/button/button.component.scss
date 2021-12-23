@@ -1,0 +1,62 @@
+button{
+    padding: 12px 20px;
+    text-decoration: none;
+    border: none;
+    cursor:pointer;
+    font-size: 0.90rem;
+
+    &.loading{
+        background-image: url("/assets/images/loading.gif");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+        color: transparent !important;
+    }
+
+   
+
+    &.default{
+        border: 1px var(--primary-color) solid;
+        background-color: transparent;
+        color: var(--primary-color);
+
+        &:hover{
+            background-color: var(--hover-defaut-color) !important;
+        }
+        
+    }
+
+    &.primary{
+        background-color: var(--primary-color);
+        color: white;
+
+        &:hover{
+            background-color: var(--hover-primary-color) !important;
+        }
+
+        &.disabled{
+            background-color: var(--disabled-primary-color);
+            cursor: not-allowed;
+
+            &:hover{
+                background-color:  var(--disabled-primary-color) !important;
+            }
+        }
+    }
+
+    &.normal{
+       height: 34px;
+       padding: 0px 20px;
+    }
+
+    &.large{
+        height: auto;
+        text-align: center;
+    }
+
+    &.form{
+        margin-bottom: 16px;
+    }
+
+    
+}

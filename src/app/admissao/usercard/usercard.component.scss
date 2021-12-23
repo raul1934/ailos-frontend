@@ -1,0 +1,24 @@
+.card {
+    &__content {
+        display: grid;
+        grid-template-columns: 50px 1fr;
+        grid-template-rows: 50px 50px;
+        gap: 10px;
+        padding-top: 20px;
+
+        &__user-icon{
+            background-image: url("/assets/icons/suave/user-solid.svg");
+        }
+
+        &__status-icon{
+            background-image: url("/assets/icons/sucesso/check-circle-regular.svg");
+        }
+
+        &__user-icon, &__status-icon{
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 32px 32px;
+        }
+    }
+
+}

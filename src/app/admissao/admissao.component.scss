@@ -1,0 +1,26 @@
+.admissao{
+    height:calc(100vh - 60px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    
+    &__content{
+        flex-grow: 1;
+    }
+
+    &__footer{
+        flex-shrink: 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 70px !important;
+        width: 100%;
+        background-color: white;
+        bottom: 0px;
+        gap: 10px;
+        
+        :first-child{
+            margin-left: 10px;
+        }
+    }
+}

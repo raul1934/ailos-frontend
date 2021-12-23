@@ -1,0 +1,127 @@
+.header {
+    background-color: #fff;
+    padding: 5px 20px 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__description {
+        h2 {
+            font-size: 1.375rem;
+            font-weight: bold;
+            line-height: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        h4 {
+            font-size: 0.7rem;
+            line-height: 0.9rem;
+            color: var(--gray-color);
+        }
+    }
+
+    &__actions {
+
+        display: grid;
+        grid-template-columns: min-content min-content min-content;
+        grid-template-rows: min-content;
+        gap: 10px;
+
+
+        .container__notification {
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            svg {
+                width: 36px;
+                height: 36px;
+                fill: var(--primary-color);
+                cursor: pointer;
+                padding: 5px;
+                border-radius: 50%;
+
+                &:hover {
+                    background-color: var(--body-color);
+                }
+            }
+
+            span{
+                padding: 4px;
+                background-color: red;
+                position: absolute;
+                font-size: 9px;
+                border-radius: 50%;
+                right: 2px;
+                top: 8px;
+                color: white;
+            }
+        }
+
+        .container__user {
+
+            display: flex;
+            align-items: center;
+
+            button {
+                all: unset;
+                display: block;
+                height: 28px;
+                cursor: pointer;
+                border: 1px var(--primary-color) solid;
+                padding: 0px 12px;
+                border-radius: 24px;
+                color: var(--primary-color);
+                font-weight: bold;
+
+                &:hover {
+                    background-color: var(--body-color);
+                }
+            }
+        }
+
+        .container__profile {
+
+            display: flex;
+            align-items: center;
+            position: relative;
+            
+            img {
+                width: 48px;
+                height: 48px;
+                object-fit: contain;
+                border-radius: 50%;
+                cursor: pointer;
+
+                &:nth-of-type(1)
+                {
+                    border: 1px var(--primary-color) solid;
+                }
+
+                &:nth-of-type(2)
+                {
+                    position: absolute;
+                    width: 16px;
+                    height: 16px;
+                    right: 0px;
+                    bottom: 0px;
+                }
+            }
+
+            span{
+                padding: 4px;
+                position: absolute;
+                font-size: 9px;
+                border-radius: 50%;
+                right: 2px;
+                top: 8px;
+                color: white;
+            }
+        }
+
+
+
+    }
+
+
+}

@@ -1,0 +1,75 @@
+<section class="admissao">
+   
+    <div class="admissao__content">
+        <form [formGroup]="_admissaoForm">
+            <als-stepper #cdkStepper>
+                <cdk-step [label]="'Início'" [stepControl]="admissaoForm.get([0])">
+                      <div class="container-fluid">
+                        <div class="row">
+                            <h1 class="pagina">Informe o CPF do futuro cooperado (a)</h1>
+                        </div>
+                        <div class="row">
+                            <p class="legenda">Se necessário você podera duplicar uma conta existente ou pausar e retomar
+                                este
+                                cadastro futuramente.</p>
+                        </div>
+    
+                        <div class="row">
+                            <p class="legenda">Digite apenas os numeros sem pontos ou traços.</p>
+                        </div>
+    
+                        <form (ngSubmit)="frmSubmit(admissaoForm.get([0]))" [formGroup]="admissaoForm.get([0])">
+                            <div class="row align-items-end">
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                                    <als-input formControlName="cpf" [mask]="'000.000.000-00'" (keyup)="validCPF = false" [placeholder]="'000.000.000-00'" [label]="'CPF'">
+                                    
+                                    </als-input>
+                                </div>
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                                    <als-button [buttonType]="'submit'" [type]="'primary'" [form]="true" [loading]="validatingCPF">Consultar por CPF</als-button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div *ngIf="validCPF" class="row">
+                            <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-3">
+                                <als-usercard [name]="name"></als-usercard>
+                            </div>
+                        </div>
+                    </div>
+                </cdk-step>
+
+                <cdk-step [label]="'Documentos'">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <h1 class="pagina">Documentos</h1>
+                        </div>
+                    </div>
+                </cdk-step>
+    
+                <cdk-step [label]="'Dados cadastrais'">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <h1 class="pagina">Dados cadastrais</h1>
+                        </div>
+                    </div>
+                </cdk-step>
+    
+                <cdk-step [label]="'Admissão'">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <h1 class="pagina">Admissão</h1>
+                        </div>
+                    </div>
+                </cdk-step>
+                  
+            </als-stepper>
+        </form>
+    </div>
+
+    <div class="admissao__footer">
+        <als-button [disabled]="!validCPF" [type]="'primary'" [size]="'large'" (click)="next()"> {{cdkStepper.selectedIndex > 0 ? "Próximo" : "Iniciar Nova Admissão"}}</als-button>
+        <als-button *ngIf="cdkStepper.selectedIndex > 0" [size]="'large'" (click)="previous()">Voltar</als-button>
+        <als-button *ngIf="cdkStepper.selectedIndex == 0" [size]="'large'">Dicas para abertura da conta</als-button>
+    </div>
+</section>
